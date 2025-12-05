@@ -1,0 +1,11 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block content %}
+<h1>Detalle de Vacuna de Mascota</h1>
+<p><strong>Mascota:</strong> {{ object.mascota.nombre }}</p>
+<p><strong>Vacuna:</strong> {{ object.vacuna.nombre }}</p>
+<p><strong>Fecha de Aplicación:</strong> {{ object.fecha_aplicacion }}</p>
+<a href="{% url 'mascotavacuna_update' object.pk %}">Editar</a>
+<a href="{% url 'mascotavacuna_delete' object.pk %}">Eliminar</a>
+<a href="{% url 'mascotavacuna_list' %}">Volver a la Lista</a>
+{% endblock %}

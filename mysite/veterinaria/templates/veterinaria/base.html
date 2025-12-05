@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria</title>
+    <link rel="stylesheet" href="{% static 'veterinaria/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{% url 'home' %}"><i class="fas fa-home"></i> Inicio</a> |
+        <a href="{% url 'dueno_list' %}"><i class="fas fa-users"></i> Dueños</a> |
+        <a href="{% url 'veterinario_list' %}"><i class="fas fa-user-md"></i> Veterinarios</a> |
+        <a href="{% url 'mascota_list' %}"><i class="fas fa-paw"></i> Mascotas</a> |
+        <a href="{% url 'consulta_list' %}"><i class="fas fa-stethoscope"></i> Consultas</a> |
+        <a href="{% url 'vacuna_list' %}"><i class="fas fa-syringe"></i> Vacunas</a>
+    </nav>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

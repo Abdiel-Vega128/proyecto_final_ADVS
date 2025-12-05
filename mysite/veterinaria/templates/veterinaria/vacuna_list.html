@@ -1,0 +1,33 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Vacunas{% endblock %}
+
+{% block content %}
+    <h1>Vacunas</h1>
+    <a href="{% url 'vacuna_create' %}" class="btn btn-primary mb-3">Agregar Vacuna</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Fecha de Aplicación</th>
+            <th>Mascota</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for vacuna in object_list %}
+            <tr>
+                <td><a href="{% url 'vacuna_detail' vacuna.pk %}">{{ vacuna.nombre }}</a></td>
+                <td>{{ vacuna.tipo }}</td>
+                <td>{{ vacuna.fecha_aplicacion }}</td>
+                <td>{{ vacuna.mascota }}</td>
+                <td>
+                    <a href="{% url 'vacuna_update' vacuna.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                    <a href="{% url 'vacuna_delete' vacuna.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

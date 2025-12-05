@@ -1,0 +1,38 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Consultas{% endblock %}
+
+{% block content %}
+    <h1>Consultas</h1>
+    <a href="{% url 'consulta_create' %}" class="btn btn-primary mb-3">Agregar Consulta</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha Consulta</th>
+                <th>Mascota</th>
+                <th>Veterinario</th>
+                <th>Diagnóstico</th>
+                <th>Tratamiento</th>
+                <th>Costo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consulta in object_list %}
+            <tr>
+                <td><a href="{% url 'consulta_detail' consulta.pk %}">{{ consulta.fecha_consulta }}</a></td>
+                <td>{{ consulta.mascota.nombre }}</td>
+                <td>{{ consulta.veterinario.nombre }}</td>
+                <td>{{ consulta.motivo }}</td>
+                <td>{{ consulta.diagnostico }}</td>
+                <td>{{ consulta.tratamiento }}</td>
+                <td>{{ consulta.costo }}</td>
+                <td>
+                    <a href="{% url 'consulta_update' consulta.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                    <a href="{% url 'consulta_delete' consulta.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

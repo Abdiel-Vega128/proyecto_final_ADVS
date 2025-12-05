@@ -1,0 +1,17 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div id="home-content">
+    <h1>Bienvenido a la Clínica Veterinaria</h1>
+    <p>Selecciona una de las siguientes opciones para empezar:</p>
+    <div class="list-group">
+        <a href="{% url 'mascota_list' %}" class="list-group-item list-group-item-action">Gestionar Mascotas</a>
+        <a href="{% url 'consulta_list' %}" class="list-group-item list-group-item-action">Gestionar Consultas</a>
+        <a href="{% url 'vacuna_list' %}" class="list-group-item list-group-item-action">Gestionar Vacunas</a>
+        <a href="{% url 'dueno_list' %}" class="list-group-item list-group-item-action">Gestionar Dueños</a>
+        <a href="{% url 'veterinario_list' %}" class="list-group-item list-group-item-action">Gestionar Veterinarios</a>
+    </div>
+</div>
+{% endblock %}

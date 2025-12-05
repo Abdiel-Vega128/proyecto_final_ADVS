@@ -1,0 +1,37 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block content %}
+    <h1>Mascotas</h1>
+    <a href="{% url 'mascota_create' %}" class="btn btn-primary mb-3">Agregar Mascota</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Dueño</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Sexo</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for mascota in object_list %}
+            <tr>
+                <td><a href="{% url 'mascota_detail' mascota.pk %}">{{ mascota.nombre }}</a></td>
+                <td>{{ mascota.dueno }}</td>
+                <td>{{ mascota.especie }}</td>
+                <td>{{ mascota.raza }}</td>
+            <td>{{ mascota.edad }}</td>
+            <td>{{ mascota.peso }}</td>
+            <td>{{ mascota.sexo }}</td>
+                <td>
+                    <a href="{% url 'mascota_update' mascota.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                    <a href="{% url 'mascota_delete' mascota.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

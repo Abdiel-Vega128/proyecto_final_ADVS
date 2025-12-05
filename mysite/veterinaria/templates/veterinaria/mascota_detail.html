@@ -1,0 +1,21 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>{{ object.nombre }}</h1>
+    </div>
+    <div class="card-body">
+        <p><strong>Especie:</strong> {{ object.especie }}</p>
+        <p><strong>Raza:</strong> {{ object.raza }}</p>
+        <p><strong>Edad:</strong> {{ object.edad }}</p>
+        <p><strong>Dueño:</strong> {{ object.dueno }}</p>
+        <p><strong>Peso:</strong> {{ object.peso }}</p>
+        <p><strong>Sexo:</strong> {{ object.sexo }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ object.fecha_nacimiento }}</p>
+        <a href="{% url 'mascota_update' object.pk %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'mascota_delete' object.pk %}" class="btn btn-danger">Eliminar</a>
+        <a href="{% url 'mascota_list' %}" class="btn btn-secondary">Volver a la Lista</a>
+    </div>
+</div>
+{% endblock %}

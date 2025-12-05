@@ -1,0 +1,13 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Detalles de la Consulta{% endblock %}
+
+{% block content %}
+    <h1>Consulta del {{ object.fecha_consulta }}</h1>
+    <p><strong>Mascota:</strong> {{ object.mascota.nombre }}</p>
+    <p><strong>Veterinario:</strong> {{ object.veterinario.nombre }} {{ object.veterinario.apellido }}</p>
+    <p><strong>Diagnóstico:</strong> {{ object.diagnostico }}</p>
+    <p><strong>Tratamiento:</strong> {{ object.tratamiento }}</p>
+    <a href="{% url 'consulta_list' %}" class="btn btn-secondary">Volver a la lista</a>
+    <a href="{% url 'consulta_update' object.pk %}" class="btn btn-primary">Editar</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block content %}
+<h1>Veterinarios</h1>
+<a href="{% url 'veterinario_create' %}" class="btn btn-primary mb-3">Agregar Veterinario</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Número de Colegiado</th>
+            <th>Turno</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for veterinario in object_list %}
+        <tr>
+            <td><a href="{% url 'veterinario_detail' veterinario.pk %}">{{ veterinario.nombre }}</a></td>
+            <td>{{ veterinario.especialidad }}</td>
+            <td>{{ veterinario.telefono }}</td>
+            <td>{{ veterinario.email }}</td>
+            <td>{{ veterinario.num_colegiado }}</td>
+            <td>{{ veterinario.turno }}</td>
+            <td>
+                <a href="{% url 'veterinario_update' veterinario.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                <a href="{% url 'veterinario_delete' veterinario.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

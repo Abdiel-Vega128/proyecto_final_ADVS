@@ -1,0 +1,18 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>{{ veterinario.nombre }}</h1>
+    </div>
+    <div class="card-body">
+        <p><strong>Especialidad:</strong> {{ veterinario.especialidad }}</p>
+        <p><strong>Teléfono:</strong> {{ veterinario.telefono }}</p>
+        <p><strong>Email:</strong> {{ veterinario.email }}</p>
+        <p><strong>Fecha de Contratación:</strong> {{ veterinario.fecha_contratacion }}</p>
+        <a href="{% url 'veterinario_update' veterinario.id_veterinario %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'veterinario_delete' veterinario.id_veterinario %}" class="btn btn-danger">Eliminar</a>
+        <a href="{% url 'veterinario_list' %}" class="btn btn-secondary">Volver a la Lista</a>
+    </div>
+</div>
+{% endblock %}

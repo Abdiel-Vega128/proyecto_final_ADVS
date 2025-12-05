@@ -1,0 +1,13 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}{% if object %}Editar{% else %}Agregar{% endif %} Consulta{% endblock %}
+
+{% block content %}
+    <h1>{% if object %}Editar{% else %}Agregar{% endif %} Consulta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'consulta_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

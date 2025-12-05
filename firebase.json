@@ -1,0 +1,17 @@
+{
+  "apphosting": {
+    "backends": [
+      {
+        "id": "clinica-veterinaria-backend",
+        "region": "us-central1",
+        "run": {
+          "command": "gunicorn --workers=2 mysite.wsgi:application",
+          "cpu": 0.25,
+          "memoryMiB": 256
+        },
+        "source": ".",
+        "stack": "python311"
+      }
+    ]
+  }
+}
